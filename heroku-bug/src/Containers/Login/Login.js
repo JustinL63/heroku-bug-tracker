@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import classes from './Login.module.css'
+import axios from '../../AxiosInstance'
 
 class Login extends Component {
 
@@ -18,16 +19,29 @@ class Login extends Component {
     }
 
     onSubmitHandler = (event) => {
+        let user = { email: this.state.email, password: this.state.password}
         this.setState({
            isLoggedIn: true
         })
-        console.log(this.state.email + " " + this.state.password + ' ' + this.state.isLoggedIn )
+        this.onPostHandler()
+        console.log(user)
         event.preventDefault()
+       
     }
 
     LoginHandler = () => {
         this.setState({
             isLoggedIn: true
+        })
+    }
+
+    onPostHandler = () => {
+        axios.post('/user', {
+            email: this.state.email,
+            password: this.state.password
+        })
+        .then(function (response) {
+            console.log(response)
         })
     }
 
@@ -52,6 +66,7 @@ class Login extends Component {
                         type='password' 
                         name='password'/>
                 <button onClick={this.onSubmitHandler}>Submit</button>
+                <button onClick={this.onPostHandler}>Axios Test</button>
                 </form>
             </div>
         )
