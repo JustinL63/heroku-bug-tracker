@@ -1,53 +1,17 @@
-import React, { Component } from 'react'
-import classes from './Bugs.module.css'
+import React from 'react'
+import Aux from '../../Components/HOC/Auxillary'
+//npm   import Bug from './Bug'
 
-class Bugs extends Component {
+const Bugs = (props) => {
 
-    state = {
-        bug: {
-            bugName: '',
-            bugDescription: ''
-        }
-    }
+    return (
+        <Aux>
+            <h1>Bugs!!!</h1>
+            <h2>{props.otherstuff}</h2>
+            <p>{props.stuff}</p>
 
-    onChangeHandler = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
-
-    onSubmitHandler = (event) => {
-       let bug = {
-           bugName: this.state.bugName,
-           bugDescription: this.state.bugDescription
-       }
-       
-        console.log(bug)
-        event.preventDefault()
-    }
-
-    render() {
-        return (
-            <div className={classes.Bugs}>
-                <form>
-                    <label>Bug Title</label>
-                    <input
-                        onChange={this.onChangeHandler} 
-                        type='text' 
-                        placeholder='Bug Title'
-                        name='bugName'/>
-                    <label>Bug Description</label>
-                    <textarea
-                        onChange={this.onChangeHandler}
-                        type='text'
-                        placeholder='Please Describe the Bug'
-                        name='bugDescription'/>
-                    <button onClick={this.onSubmitHandler}>Add the Bug</button>
-                </form>
-
-            </div>
-        )
-    }
+        </Aux>
+    )
 }
 
 export default Bugs

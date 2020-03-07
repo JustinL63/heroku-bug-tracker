@@ -1,13 +1,21 @@
 import React from 'react';
 import './App.css';
-import Login from '../src/Containers/Login/Login'
-import Bugs from '../src/Containers/Bugs/Bugs'
+import Login from './Containers/Login/Login'
+import Navbar from './Components/Navigation/Navbar'
+import Layout from './Components/Layout/Layout'
+import Bug from './Containers/Bugs/Bug'
+import Bugs from './Containers/Bugs/Bugs'
 
 function App() {
   return (
-    <div className="App">
-      <Login/>
-      <Bugs/>
+    <div className="container.fluid">
+      <Layout>
+        <Navbar/>
+        <Login/>
+        <Bug/>
+        <Bugs/>
+      </Layout>
+      
     </div>
   );
 }
