@@ -25,8 +25,7 @@ class Bug extends Component {
     onSubmitHandler = (event) => {
         event.preventDefault()
         this.setState({
-            name: this.state, 
-            description:  this.state
+            bug: this.state
         })     
         this.componentDidMount()
           

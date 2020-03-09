@@ -11,9 +11,11 @@
     "ci": "^1.0.0",
     "next": "^9.2.2",
     "node-sass": "^4.13.1",
+    "node.js": "0.0.0",
     "react": "^16.13.0",
     "react-bootstrap": "^1.0.0-beta.17",
     "react-dom": "^16.13.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0"
   },
   "scripts": {

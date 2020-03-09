@@ -3,48 +3,40 @@ import classes from './Login.module.css'
 import { Form, Button } from 'react-bootstrap'
 import axios from '../../axios-orders'
 
-class Login extends Component {
 
+
+class Login extends Component {
+  
     state = {
-        user: {
             email: '',
-            password: ''
-        },
-        isLoggedIn: false
+            password: '',
+            isLoggedIn: false
     }
 
-    componentDidMount () {
-      let userInfo = this.state.user
-      axios.get('https://bugtracker-6248e.firebaseio.com/user.json')
-        .then(response => {
-          this.setState({userInfo: response.data})
-          console.log('componentdidMount', userInfo)
-        })
-        
+    componentDidMount() {
+      console.log('componentdidmount login')
     }
 
     onChangeHandler = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
+      this.setState({
+        [event.target.name]: event.target.value
+      })
     }
 
     onSubmitHandler = (event) => {
-        event.preventDefault()
-        let user = { email: this.state.email, password: this.state.password}
-        this.setState({
-           isLoggedIn: true
-        })
-        console.log(user)
-       axios.post('/user.json', user)
+      event.preventDefault()
+      const user = {
+        email:  this.state.email,
+        password:  this.state.password
+      }
+      this.backendHandler(user)
+      console.log(user)
     }
 
-    LoginHandler = () => {
-        this.setState({
-            isLoggedIn: true
-        })
+    backendHandler = (info) => {
+      const userInfo = info
+      axios.post('/user.json', userInfo)
     }
-
    
     render() {
         return (

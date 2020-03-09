@@ -1,62 +1,66 @@
 import React, { Component } from 'react'
 import Aux from '../../Components/HOC/Auxillary'
-import axios from '../../axios-orders'
+import {Card, Row, Col} from 'react-bootstrap'
+// import axios from '../../axios-orders'
 
 class Bugs extends Component {
-
-    //this component pull the previously made bugs from the backend
-
-    state = {
-        bugList: null,
-        allBugs: null
-    }
-
-
-
-    
-    fetchBugsHandler = () => {
-        //this function gets the json info from firebase
-        axios.get('/bugs.json')
-        .then(response => {
-            console.log(response)
-            
-        })
-       
-       
-    }
-    setDataHandler = (info) => {
-        //this function takes the response and puts it into usable data
-        const newBugList = Object.keys(info)
-        .map(bugKey => {
-            return info[bugKey]
-        })
-        this.setState({
-            allBugs: newBugList
-        })
-        console.log(newBugList)
-
-
-    }
-
-    updatedBugsHandler = () => {
-        //this function will update the list of bugs
-
-    }
-    
-
 
     render() {
         return (
             <Aux>
-                <h1>Bugs!!!</h1>
-        <p></p>
-                <button onClick={this.setDataHandler}>Set Data Handler</button>
-                <button onClick={this.fetchBugsHandler}>Get Bugs!!</button>
+                <Row>
+                    <Col>
+                <Card>
+                    <Card.Title>Title 1</Card.Title>
+                    <Card.Body> 
+                        I’m the best thing that ever happened to placeholder text.  
+                        Look at that text! Would anyone use that? Can you imagine that, 
+                        the text of your next webpage?! Lorem Ipsum's father was with 
+                        Lee Harvey Oswald prior to Oswald's being, you know, shot.I don't think
+                        anybody knows it was Russia that wrote Lorem Ipsum, but I don't know,
+                        maybe it was. It could be Russia, but it could also be China. It could
+                        also be lots of other people. It also could be some wordsmith sitting on
+                         their bed that weights 400 pounds. Ok?
+                    </Card.Body>
+                </Card>
+                </Col>
+                <br/>
+                <Col>
+                <Card >
+                    <Card.Title>Title 2</Card.Title>
+                    <Card.Body> 
+                        I’m the best thing that ever happened to placeholder text.  
+                        Look at that text! Would anyone use that? Can you imagine that, 
+                        the text of your next webpage?! Lorem Ipsum's father was with 
+                        Lee Harvey Oswald prior to Oswald's being, you know, shot.I don't think
+                        anybody knows it was Russia that wrote Lorem Ipsum, but I don't know,
+                        maybe it was. It could be Russia, but it could also be China. It could
+                        also be lots of other people. It also could be some wordsmith sitting on
+                         their bed that weights 400 pounds. Ok?
+                    </Card.Body>
+                </Card>
+                </Col>
+                <br/>
+                <Col>
+                <Card>
+                    <Card.Title>Title 3</Card.Title>
+                    <Card.Body> 
+                        I’m the best thing that ever happened to placeholder text.  
+                        Look at that text! Would anyone use that? Can you imagine that, 
+                        the text of your next webpage?! Lorem Ipsum's father was with 
+                        Lee Harvey Oswald prior to Oswald's being, you know, shot.I don't think
+                        anybody knows it was Russia that wrote Lorem Ipsum, but I don't know,
+                        maybe it was. It could be Russia, but it could also be China. It could
+                        also be lots of other people. It also could be some wordsmith sitting on
+                         their bed that weights 400 pounds. Ok?
+                    </Card.Body>
+                </Card>
+                </Col>
+                </Row>
             </Aux>
         )
     }
 
-   
 }
 
 export default Bugs
